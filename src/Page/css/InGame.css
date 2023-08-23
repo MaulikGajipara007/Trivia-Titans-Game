@@ -1,0 +1,180 @@
+/* .full-height-layout {
+    height: 100vh;
+} */
+
+.two-column-container {
+    display: flex;
+    height: 100%;
+}
+
+.column1 {
+    /* flex: 3; */
+    background-color: white;
+}
+
+.column2 {
+    /* flex: 1.3; */
+    background-color: rgba(239, 239, 239, 0.753);
+}
+
+
+/* chat component */
+.messages-wrapper {
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.chat-bubble {
+    border-radius: 20px 20px 20px 0;
+    background-color: #023467;
+    color: #ffffff;
+    width: max-content;
+    max-width: 65%;
+    box-shadow: -2px 2px 1px 1px #000000;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    word-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+    padding-right: 3%;
+    padding-top: 2%;
+
+}
+
+@media (max-width: 768px) {
+    .chat-bubble {
+        max-width: 85%;
+        /* Adjust the value as needed */
+    }
+}
+
+
+.chat-bubble.right {
+    margin-left: auto;
+    background-color: #428c69;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: -2px 2px 1px 1px #88dded;
+
+}
+
+.chat-bubble__left {
+    /* border-radius: 50%; */
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #fdfdfd;
+}
+
+.user-message {
+    word-break: break-all;
+}
+
+.message-time {
+    display: block;
+    text-align: right;
+}
+
+/* send message */
+.send-message {
+    bottom: 0px;
+    height: 6%;
+    width: 100%;
+    padding: 2%;
+    background-color: #001529;
+    display: flex;
+}
+
+.send-message.has-messages {
+    position: absolute;
+}
+
+.send-message.no-messages {
+    position: absolute;
+}
+
+.send-message>input {
+    height: auto;
+    /* width: 60%; */
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    flex-grow: 1;
+    background-color: white;
+    color: #1c2c4c;
+    font-size: 1rem;
+}
+
+.send-message>input:placeholder {
+    color: #ddd;
+}
+
+.send-message> :is(input, button):focus {
+    outline: none;
+    border-bottom: 1px solid #000000;
+}
+
+.send-message>button {
+    /* width: 10px; */
+    height: auto;
+    margin-left: 2%;
+    border-radius: 5px;
+    color: white;
+    /* border: 1px solid #b2bbe6; */
+    background-color: #023467;
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+}
+
+
+/* Question */
+.option:hover {
+    background-color: #034d97;
+}
+
+.option:hover .ant-typography {
+    color: white;
+    /* Change to your desired hover text color */
+}
+
+
+
+.option.correct {
+    background-color: #31c62c !important;
+    font-weight: bolder;
+    color: white;
+    font-size: x-large;
+}
+
+
+.option.incorrect {
+    background-color: #c62c2c !important;
+    font-weight: bolder;
+    color: white;
+    font-size: x-large;
+}
+
+.clock-countdown {
+    margin-top: 10%;
+    display: inline-block;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4c768d;
+}
+
+
+.clock-countdown {
+    display: flex;
+    align-items: center;
+}
+
+.clock-icon {
+    margin-right: 8px;
+}

@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for sam-app
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 120
+
+Resources:
+  # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-resource-function--examples
+  # Reference: AWS::Serverless::Function
+  GameLambdaFunction: 
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Game/ 
+      Handler: app.handler 
+      Role: arn:aws:iam::947385954424:role/LabRole 
+      Runtime: nodejs18.x 
+      # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html#sam-resource-httpapi--examples
+      # Reference: AWS::Serverless::HttpApi
+      Events:
+        CreateEvent:
+          Type: HttpApi
+          Properties:
+            Path: /create
+            Method: POST
+        AddQuestionsEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /games/addedquestions/{id}
+            Method: PUT
+        RemoveQuestionsEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /games/removequestions/{id}
+            Method: PUT
+        GetGamesEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /games/get
+            Method: GET
+        GetGameByIdEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /gameget/{id}
+            Method: GET
+        DeleteGameEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /games/delete/{id}
+            Method: DELETE
+        UpdateGameEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /games/edit/{id}
+            Method: PUT
+            
+  # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-resource-function--examples
+  # Reference: AWS::Serverless::Function
+  QuestionLambdaFunction: 
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Question/ 
+      Handler: app.handler 
+      Role: arn:aws:iam::947385954424:role/LabRole 
+      Runtime: nodejs18.x 
+      # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html#sam-resource-httpapi--examples
+      # Reference: AWS::Serverless::HttpApi
+      Events:
+        AddQuestionEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /questions/add
+            Method: POST
+        EditQuestionEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /questions/edit/{id}
+            Method: PUT
+        DeleteQuestionEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /questions/delete/{id}
+            Method: DELETE
+        GetQuestionsEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /questions
+            Method: GET
+        GetQuestionByIdEvent: 
+          Type: HttpApi
+          Properties:
+            Path: /questions/{id}
+            Method: GET

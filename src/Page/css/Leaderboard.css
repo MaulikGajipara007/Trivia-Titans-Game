@@ -1,0 +1,11 @@
+.leaderboard-filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.leaderboard-header {
+  margin-top: 20px;
+}
